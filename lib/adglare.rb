@@ -180,8 +180,11 @@ class Adglare
             return json["response"]
           end
         else 
-          raise StandardError json["response"]["errormsg"]
+          raise AuthenticationError, json["response"]["errormsg"]
         end
       end
     end
+end
+
+class AuthenticationError < StandardError
 end

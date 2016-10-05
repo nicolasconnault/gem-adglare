@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'adglare'
-  s.version     = '0.0.3'
-  s.date        = '2016-10-04'
+  s.version     = '0.0.5'
+  s.date        = '2016-10-05'
   s.summary     = "Adglare API Library"
   s.description = "Allows interaction with an AdGlare account, to display ads on multiple sites"
   s.authors     = ["Nicolas Connault"]

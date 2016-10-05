@@ -2,7 +2,8 @@ class Adglare
   require 'digest/sha1'
   require 'curb'
   require 'json'
-  
+  require 'byebug'
+
   attr_accessor :public_key, :private_key, :ajax
   # If ajax is true, the class will output the required Javascript to make the API call, instead of using CURL
 
@@ -173,9 +174,11 @@ class Adglare
         # parse response into JSON object
         json = JSON.parse content
         
-        if json["response"]["success"] == '1'
+        if json["response"]["success"] == '1' || json["response"]["errormsg"] == "No results with these filters."
           if json["response"]["data"]
             return json["response"]["data"]
+          elsif json["response"]["errormsg"] == "No results with these filters."
+            return []
           else 
             return json["response"]
           end

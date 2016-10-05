@@ -9,4 +9,10 @@ class AdglareTest < Minitest::Test
     assert_equal "102242510", results.first["zgID"]
     assert_equal "Healthpoint AU Pharmacies", results.first["name"]
   end
+
+  def test_empty_campaigns_creatives_list
+    adglare = Adglare.new public_key: 'bdWEM63WcF3c74PzCZVG9gcsv5nPtUFJa5FCvvEY', private_key: 'dWZnZ2dNvgV8eRRZc4P69bvF4cBvz4NfKhuUpNw8'
+    ads = adglare.campaigns_creatives_list cID: 134889204
+    assert_equal [], ads
+  end
 end
